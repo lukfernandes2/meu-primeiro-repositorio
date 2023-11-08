@@ -63,3 +63,21 @@ print('|                        |')
 print('| Bem vindo ao termovita |')
 print('|                        |')
 print('==========================')
+
+print('Comandos: desisto')
+
+print('REGRAS!!!!')
+print(' - Você tem 6 tentativas para acertar uma palavra aleatória de 5 letras.')
+print(' - A cada tentativa, a palavra testada terá suas letras coloridas conforme:')
+print(' - A cada tentativa, a palavra testada terá suas letras coloridas conforme:')
+print('    . Azul   : a letra está na posição correta;')
+print('    . Amarelo: a palavra tem a letra, mas está na posição errada;')
+print('    . Cinza: a palavra não tem a letra.')
+print(' - Os acentos são ignorados;')
+print(' - As palavras podem possuir letras repetidas.')
+print(' - As palavras podem possuir letras repetidas.')
+
+
+
+print('sorteando uma palavra...')
+print('já tenho uma palavra, tente descobrir!' )
