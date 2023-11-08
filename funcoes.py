@@ -1,4 +1,5 @@
 import random
+from palavras import PALAVRAS as plvs
 
 def filtra (listapal, numletras):
 
@@ -55,3 +56,5 @@ def inidica_posicao(sorteada, especulada):
             resultado.append(2)
 
     return resultado
+
+
