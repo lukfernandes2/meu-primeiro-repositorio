@@ -19,6 +19,10 @@ def filtra (listapal, numletras):
     
     return listafinal
 
+listaatualizada = filtra(plvs, 5)
+
+
+
 
 def inicializa (listapal):
 
@@ -43,6 +47,10 @@ def inicializa (listapal):
 
     return dicfinal
 
+dicionario = inicializa(listaatualizada)
+
+
+
 def inidica_posicao(sorteada, especulada):
     if len(sorteada) != len(especulada):
         return []
@@ -56,6 +64,8 @@ def inidica_posicao(sorteada, especulada):
             resultado.append(2)
 
     return resultado
+
+
 
 
 print('==========================')
@@ -87,5 +97,17 @@ print('')
 
 print('sorteando uma palavra...')
 print('já tenho uma palavra, tente descobrir!' )
+
+i = 6
+
+while palpite != sorteada:
+
+    print ('Você tem {0} tentativa(s)':.format(i))
+
+    palpite = input('Qual o seu palpite?')
+
+    print('Insper :: Termovita')
+
+
 
 
