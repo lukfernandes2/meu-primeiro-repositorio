@@ -58,3 +58,8 @@ def inidica_posicao(sorteada, especulada):
     return resultado
 
 
+print('==========================')
+print('|                        |')
+print('| Bem vindo ao termovita |')
+print('|                        |')
+print('==========================')
