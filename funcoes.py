@@ -49,7 +49,7 @@ def inicializa (listapal):
 
 dicionario = inicializa(listaatualizada)
 historico= dicionario['especuladas']
-
+sorteadas =dicionario['sorteada']
 
 def inidica_posicao(sorteada, especulada):
     if len(sorteada) != len(especulada):
@@ -126,18 +126,21 @@ print(Tabela(historico,maxx,detalhes))
 tenta = 6
 while tenta != 0:
     especulada=input('Qual o seu palpite?')
-    if 'especulada' == 'sorteada':
+    if especulada == sorteadas:
         a = 1
         tenta=0
-    print ('Você tem {0} tentativa(s)':.format(tenta))
+    for i in especulada:
+        if i in sorteadas:
+    i
+
+    print('Você tem {0} tentativa(s)':.format(tenta))
     palpite = input('Qual o seu palpite?')
     print('Insper :: Termovita')
 
-if a == 1:
-    print('Parabens!!')
-else: print ("Poxa, não foi desta vez...")
 
 
 
 
-
+#if a == 1:
+#   print('Parabens!!')
+#else: print ("Poxa, não foi desta vez...")   
