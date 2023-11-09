@@ -111,11 +111,15 @@ cor_amarela = "\033[93m"
 
 
 
-tenta = 6
+
 
 a = 0
 
 lista_final = []
+
+i = 0
+
+tenta = 6
 
 while tenta != 0:
 
@@ -127,7 +131,6 @@ while tenta != 0:
     
     if especulada == sorteada:
         a = 1
-        tenta = 0
         break
 
     elif especulada == 'Desisto':
@@ -139,25 +142,25 @@ while tenta != 0:
     palavra_colorida = []
 
     i = 0
-
+    
     for numero in posicao:
 
-        if numero == 0 :
+        if  numero == 0 :
 
-            palavra_colorida.append('\033[94m' + especulada[i])
+            palavra_colorida.append(especulada[i])
 
         elif numero == 1:
-            palavra_colorida.append('\033[93m' + especulada[i])
         
-        else:
-            palavra_colorida.append(especulada[i])
+            palavra_colorida.append( especulada[i])
+        
+        elif numero == 2:
+        
+            palavra_colorida.append( especulada[i])
         
         i += 1
 
-        lista_final.append (palavra_colorida)
+    lista_final.append (palavra_colorida)
 
-
-    
     tenta -= 1
 
 
