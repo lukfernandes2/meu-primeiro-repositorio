@@ -48,7 +48,7 @@ def inicializa (listapal):
     return dicfinal
 
 dicionario = inicializa(listaatualizada)
-
+historico = dicionario['especuladas']
 
 
 def inidica_posicao(sorteada, especulada):
@@ -67,6 +67,7 @@ def inidica_posicao(sorteada, especulada):
 
 
 
+#PRINTS
 
 print('==========================')
 print('|                        |')
@@ -83,9 +84,9 @@ print(' - Você tem 6 tentativas para acertar uma palavra aleatória de 5 letras
 print(' - A cada tentativa, a palavra testada terá suas letras coloridas conforme:')
 print(' - A cada tentativa, a palavra testada terá suas letras coloridas conforme:')
 print('')
-print('    . Azul   : a letra está na posição correta;')
-print('    . Amarelo: a palavra tem a letra, mas está na posição errada;')
-print('    . Cinza: a palavra não tem a letra.')
+print(' \033[94m   . Azul \033[30m : a letra está na posição correta;')
+print(' \033[93m   . Amarelo \033[30m : a palavra tem a letra, mas está na posição errada;')
+print(' \033[90m"   . Cinza \033[30m : a palavra não tem a letra.')
 print('')
 print(' - Os acentos são ignorados;')
 print(' - As palavras podem possuir letras repetidas.')
@@ -98,15 +99,36 @@ print('')
 print('sorteando uma palavra...')
 print('já tenho uma palavra, tente descobrir!' )
 
-i = 6
+#CORES PARA O TERMO
+cor_azul = "\033[94m"
+cor_preta = "\033[30m"
+cor_cinza = "\033[90m"
+cor_amarela = "\033[93m"
 
-while palpite != sorteada:
+#FNÇÃO TABELA
+maxx=6
+detalhes='--- --- --- --- ---'
+def Tabela(historico,maxx,detalhes):
+    separacao ='-'((4*maxx)+1)+'\n'
+    tabela=separacao
+    for plvs in historico:
+        traco='|'
+        for i in plvs:
+            traco+=f'{i}'
+        tabela+= traco+ '\n'+separacao
+    if len(historico)<detalhes:
+        tabela+=f'{"|   "*detalhes+"|"}\n{separacao}'*(maxx-len(historico))
+    return tabela
+print(Tabela(historico,maxx,detalhes))
+#i = 6
 
-    print ('Você tem {0} tentativa(s)':.format(i))
+#while palpite != sorteada:
 
-    palpite = input('Qual o seu palpite?')
+ #   print ('Você tem {0} tentativa(s)':.format(i))
 
-    print('Insper :: Termovita')
+  #  palpite = input('Qual o seu palpite?')
+
+   # print('Insper :: Termovita')
 
 
 
