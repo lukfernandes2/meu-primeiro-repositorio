@@ -21,9 +21,6 @@ def filtra (listapal, numletras):
 
 listaatualizada = filtra(plvs, 5)
 
-
-
-
 def inicializa (listapal):
 
     dicfinal = {}
@@ -48,8 +45,12 @@ def inicializa (listapal):
     return dicfinal
 
 dicionario = inicializa(listaatualizada)
-historico= dicionario['especuladas']
-sorteadas =dicionario['sorteada']
+
+sorteada = dicionario['sorteada']
+
+print(dicionario)
+
+print(sorteada)
 
 def inidica_posicao(sorteada, especulada):
     if len(sorteada) != len(especulada):
@@ -64,6 +65,8 @@ def inidica_posicao(sorteada, especulada):
             resultado.append(2)
 
     return resultado
+
+
 
 
 
@@ -105,42 +108,132 @@ cor_preta = "\033[30m"
 cor_cinza = "\033[90m"
 cor_amarela = "\033[93m"
 
-#FNÇÃO TABELA
-maxx=6
-detalhes='--- --- --- --- ---'
-def Tabela(historico,maxx,detalhes):
-    separacao ='-'((4*maxx)+1)+'\n'
-    tabela=separacao
-    for plvs in historico:
-        traco='|'
-        for i in plvs:
-            traco+=f'{i}'
-        tabela+= traco+ '\n'+separacao
-    if len(historico)<detalhes:
-        tabela+=f'{"|   "*detalhes+"|"}\n{separacao}'*(maxx-len(historico))
-    
-    return tabela
-print(Tabela(historico,maxx,detalhes))
+
 
 
 tenta = 6
+
+a = 0
+
+lista_final = []
+
 while tenta != 0:
-    especulada=input('Qual o seu palpite?')
-    if especulada == sorteadas:
-        a = 1
-        tenta=0
-    for i in especulada:
-        if i in sorteadas:
-    i
 
-    print('Você tem {0} tentativa(s)':.format(tenta))
-    palpite = input('Qual o seu palpite?')
+    print('Você tem {0} tentativa(s)'.format(tenta))
+
+    especulada = input('Qual o seu palpite?')
+
     print('Insper :: Termovita')
+    
+    if especulada == sorteada:
+        a = 1
+        tenta = 0
+        break
+
+    elif especulada == 'Desisto':
+
+        break
+    
+    posicao = inidica_posicao(sorteada, especulada)
+
+    palavra_colorida = []
+
+    i = 0
+
+    for numero in posicao:
+
+        if numero == 0 :
+
+            palavra_colorida.append('\033[94m' + especulada[i])
+
+        elif numero == 1:
+            palavra_colorida.append('\033[93m' + especulada[i])
+        
+        else:
+            palavra_colorida.append(especulada[i])
+        
+        i += 1
+
+        lista_final.append (palavra_colorida)
+
+
+    
+    tenta -= 1
+
+
+print (lista_final)
+
+
+if a == 1:
+   print('Parabens!!')
+else: print ("Poxa, não foi desta vez...")   
 
 
 
 
 
-#if a == 1:
-#   print('Parabens!!')
-#else: print ("Poxa, não foi desta vez...")   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#FUNÇÃO TABELA
+#maxx=6
+#detalhes='--- --- --- --- ---'
+
+#ef Tabela(historico,maxx,detalhes):
+    #separacao ='-'((4*maxx)+1)+'\n'
+    #tabela=separacao
+    #for plvs in historico:
+        #traco='|'
+        #for i in plvs:
+            #traco+=f'{i}'
+        #tabela+= traco+ '\n'+separacao
+    #if len(historico)<detalhes:
+        #tabela+=f'{"|   "*detalhes+"|"}\n{separacao}'*(maxx-len(historico))
+    
+    #return tabela
+
+#print(Tabela(historico,maxx,detalhes))
+
+
