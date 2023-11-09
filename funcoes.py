@@ -172,71 +172,25 @@ if a == 1:
 else: print ("Poxa, não foi desta vez...")   
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #FUNÇÃO TABELA
-#maxx=6
-#detalhes='--- --- --- --- ---'
 
-#ef Tabela(historico,maxx,detalhes):
-    #separacao ='-'((4*maxx)+1)+'\n'
-    #tabela=separacao
-    #for plvs in historico:
-        #traco='|'
-        #for i in plvs:
-            #traco+=f'{i}'
-        #tabela+= traco+ '\n'+separacao
-    #if len(historico)<detalhes:
-        #tabela+=f'{"|   "*detalhes+"|"}\n{separacao}'*(maxx-len(historico))
-    
-    #return tabela
+maxx = 6
+detalhes = '--- --- --- ---'
 
-#print(Tabela(historico,maxx,detalhes))
+def Tabela(lista_final, maxx, detalhes):
+    largura_celula = 3  
+    separacao = '-' * ((largura_celula + 1) * maxx + 1) + '\n'
+    tabela = separacao
 
+    for plvs in lista_final:
+        traco = '|'
+        for i in plvs:
+            traco += f'{i:^{largura_celula}}'
+        tabela += traco + '|\n' + separacao
+
+    if len(lista_final) < maxx:
+        tabela += f'{("|" + " " * largura_celula) * (maxx - len(lista_final))}|' + '\n' + separacao
+
+    return tabela
+print(Tabela(lista_final,maxx,detalhes))
 
