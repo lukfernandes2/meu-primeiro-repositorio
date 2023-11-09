@@ -118,6 +118,7 @@ def Tabela(historico,maxx,detalhes):
         tabela+= traco+ '\n'+separacao
     if len(historico)<detalhes:
         tabela+=f'{"|   "*detalhes+"|"}\n{separacao}'*(maxx-len(historico))
+    
     return tabela
 print(Tabela(historico,maxx,detalhes))
 #i = 6
