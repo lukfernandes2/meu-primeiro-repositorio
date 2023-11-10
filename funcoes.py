@@ -110,6 +110,25 @@ cor_amarela = "\033[93m"
 
 
 
+def Tabela(lista_final, maxx, detalhes):
+    largura_celula = 3  
+    separacao = '-' * ((largura_celula + 1) * maxx + 1) + '\n'
+    tabela = separacao
+
+    for plvs in lista_final:
+        traco = '|'
+        for i in plvs:
+            traco += f'{i:^{largura_celula}}'
+        tabela += traco + '|\n' + separacao
+
+    if len(lista_final) < maxx:
+        tabela += f'{("|" + " " * largura_celula) * (maxx - len(lista_final))}|' + '\n' + separacao
+
+    return tabela
+
+
+
+
 
 
 
@@ -120,6 +139,8 @@ lista_final = []
 i = 0
 
 tenta = 6
+
+tabelao = ''
 
 while tenta != 0:
 
@@ -146,51 +167,37 @@ while tenta != 0:
     for numero in posicao:
 
         if  numero == 0 :
+            azul= cor_azul + especulada[i] + cor_cinza
 
-            palavra_colorida.append(especulada[i])
+            palavra_colorida.append(azul)
 
         elif numero == 1:
+
+            amarelo = cor_amarela + especulada[i] + cor_cinza
         
-            palavra_colorida.append( especulada[i])
+            palavra_colorida.append(amarelo)
         
         elif numero == 2:
         
-            palavra_colorida.append( especulada[i])
+            palavra_colorida.append(especulada[i])
         
         i += 1
 
     lista_final.append (palavra_colorida)
 
+    tabela = Tabela(lista_final, 6, '--- --- --- ---' )
+
+    print(tabela)
+
     tenta -= 1
-
-
-print (lista_final)
-
 
 if a == 1:
    print('Parabens!!')
+
 else: print ("Poxa, não foi desta vez...")   
 
+print('A palvra era...{0}'.format(sorteada))
 
-#FUNÇÃO TABELA
 
-maxx = 6
-detalhes = '--- --- --- ---'
 
-def Tabela(lista_final, maxx, detalhes):
-    largura_celula = 3  
-    separacao = '-' * ((largura_celula + 1) * maxx + 1) + '\n'
-    tabela = separacao
-
-    for plvs in lista_final:
-        traco = '|'
-        for i in plvs:
-            traco += f'{i:^{largura_celula}}'
-        tabela += traco + '|\n' + separacao
-
-    if len(lista_final) < maxx:
-        tabela += f'{("|" + " " * largura_celula) * (maxx - len(lista_final))}|' + '\n' + separacao
-
-    return tabela
-print(Tabela(lista_final,maxx,detalhes))
 
