@@ -48,10 +48,6 @@ dicionario = inicializa(listaatualizada)
 
 sorteada = dicionario['sorteada']
 
-print(dicionario)
-
-print(sorteada)
-
 def inidica_posicao(sorteada, especulada):
     if len(sorteada) != len(especulada):
         return []
@@ -72,35 +68,33 @@ def inidica_posicao(sorteada, especulada):
 
 #PRINTS
 
-print('==========================')
-print('|                        |')
-print('| Bem vindo ao termovita |')
-print('|                        |')
-print('==========================')
+print('============================')
+print('|                          |')
+print('|  Bem-vindoS ao Termovita |')
+print('|                          |')
+print('=====Design de Software=====')
 print('')
 print('')
-print('Comandos: desisto')
+print('Comandos: Desisto')
 print('')
-print('REGRAS!!!!')
+print('REGRAS:')
 print('')
 print(' - Você tem 6 tentativas para acertar uma palavra aleatória de 5 letras.')
-print(' - A cada tentativa, a palavra testada terá suas letras coloridas conforme:')
-print(' - A cada tentativa, a palavra testada terá suas letras coloridas conforme:')
+print(' - A cada tentativa, a palavra escolhida terá suas letras coloridas conforme:')
 print('')
 print(' \033[94m   . Azul \033[30m : a letra está na posição correta;')
 print(' \033[93m   . Amarelo \033[30m : a palavra tem a letra, mas está na posição errada;')
-print(' \033[90m"   . Cinza \033[30m : a palavra não tem a letra.')
+print(' \033[90m   . Cinza \033[30m : a palavra não tem a letra.')
 print('')
 print(' - Os acentos são ignorados;')
 print(' - As palavras podem possuir letras repetidas.')
-print(' - As palavras podem possuir letras repetidas.')
 print('')
 print('')
 
 
 
-print('sorteando uma palavra...')
-print('já tenho uma palavra, tente descobrir!' )
+print('Sorteando uma palavra...')
+print('Já tenho uma palavra, tente descobrir!' )
 
 #CORES PARA O TERMO
 cor_azul = "\033[94m"
@@ -122,7 +116,7 @@ def Tabela(lista_final, maxx, detalhes):
         tabela += traco + '|\n' + separacao
 
     if len(lista_final) < maxx:
-        tabela += f'{("|" + " " * largura_celula) * (maxx - len(lista_final))}|' + '\n' + separacao
+        tabela += f'{("|" + "  " * largura_celula) * (maxx - len(lista_final))} |' + '\n' + separacao
 
     return tabela
 
@@ -187,7 +181,12 @@ while tenta != 0:
 
     tabela = Tabela(lista_final, 6, '--- --- --- ---' )
 
-    print(tabela)
+    if len(especulada) == 5:
+        print(tabela)
+    
+    else:
+        print('A palavra deve conter 5 letras!')
+        tenta += 1
 
     tenta -= 1
 
